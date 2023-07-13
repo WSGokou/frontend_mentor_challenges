@@ -19,7 +19,7 @@ const QRCodePage = () => {
       <div className="border h-fit max-h-[500px] p-4 pb-0 bg-white rounded-2xl flex flex-col items-center shadow-lg">
         {/* QR Code */}
         <Image
-          src="/image-qr-code.png"
+          src="/qrcode/image-qr-code.png"
           alt="QRCode"
           width={288}
           height={288}

@@ -3,7 +3,8 @@ import React from 'react';
 
 const challenges = [
   //   {text: 'Home', href: '/'},
-  {text: 'QR Code Component', href: '/challenges/qrcode'},
+  {text: 'QR Code Card', href: '/challenges/qrcode'},
+  {text: 'Results Summary', href: '/challenges/results-summary'},
 ];
 
 const ChallengesPage = () => {
