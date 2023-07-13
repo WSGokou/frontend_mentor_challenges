@@ -16,7 +16,7 @@ const QRCodePage = () => {
       className={`${outfit.className} bg-[#d6e2f0] h-screen w-screen flex items-center justify-center text-center text-sm shadow-md`}
     >
       {/* Component */}
-      <div className="border h-fit p-4 pb-0 bg-white rounded-2xl flex flex-col items-center">
+      <div className="border h-fit max-h-[500px] p-4 pb-0 bg-white rounded-2xl flex flex-col items-center">
         {/* QR Code */}
         <Image
           src="/image-qr-code.png"
