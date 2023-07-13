@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 const QRCodePage = () => {
   return (
     <div
-      className={`${outfit.className} bg-[#d6e2f0] h-screen w-screen flex items-center justify-center text-center text-sm shadow-md`}
+      className={`${outfit.className} bg-[#d6e2f0] h-screen w-screen flex items-center justify-center text-center text-sm`}
     >
       {/* Component */}
-      <div className="border h-fit max-h-[500px] p-4 pb-0 bg-white rounded-2xl flex flex-col items-center">
+      <div className="border h-fit max-h-[500px] p-4 pb-0 bg-white rounded-2xl flex flex-col items-center shadow-lg">
         {/* QR Code */}
         <Image
           src="/image-qr-code.png"
