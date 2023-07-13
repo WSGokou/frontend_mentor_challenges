@@ -19,7 +19,7 @@ const ChallengesPage = () => {
         A button to navigate back to this page can be found at the bottom of
         each challenge
       </p>
-      <h1 className="text-2xl font-bold">Challenges</h1>
+      <h1 className="text-4xl font-bold mb-10">Challenges</h1>
       <div className="grid lg:grid-cols-3 gap-5 lg:gap-20">
         {challenges.map((challenge, idx) => (
           <Link
