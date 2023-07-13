@@ -15,4 +15,19 @@ module.exports = {
     },
   },
   plugins: [],
+  purge: {
+    content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+    options: {
+      safelist: [
+        'text-[#ff5757]',
+        'bg-[#ff575710]',
+        'text-[#ffb01f]',
+        'bg-[#ffb01f10]',
+        'text-[#00bd91]',
+        'bg-[#00bd9110]',
+        'text-[#1125d4]',
+        'bg-[#1125d410]',
+      ],
+    },
+  },
 };
