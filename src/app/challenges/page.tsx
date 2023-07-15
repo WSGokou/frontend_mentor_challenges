@@ -5,6 +5,7 @@ const challenges = [
   //   {text: 'Home', href: '/'},
   {text: 'QR Code Card', href: '/challenges/qrcode'},
   {text: 'Results Summary', href: '/challenges/results-summary'},
+  {text: 'NFT Preview Card', href: '/challenges/nft-preview-card'},
 ];
 
 const ChallengesPage = () => {
