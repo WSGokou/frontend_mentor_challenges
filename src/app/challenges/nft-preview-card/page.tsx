@@ -23,31 +23,44 @@ const NFTCardPage = () => {
       {/* Component */}
       <div className="bg-[#14253d] h-[545px] md:h-[600px] w-[330px] md:w-[355px] p-6 md:p-7 flex flex-col items-start justify-between rounded-2xl">
         {/* NFT Image */}
-        <Image
-          src={imageSrc}
-          alt=""
-          height={200}
-          width={200}
-          className="w-full rounded-lg"
-        />
+        <div className="group relative w-full flex items-center justify-center hover:cursor-pointer">
+          <Image
+            src={imageSrc}
+            alt=""
+            height={200}
+            width={200}
+            className="w-full rounded-lg"
+          />
+          <div className="z-30 hidden group-hover:flex bg-[#00fff776] absolute items-center justify-center w-full h-full rounded-lg">
+            <Image
+              src={'/nft-preview-card/icon-view.svg'}
+              alt=""
+              height={48}
+              width={48}
+              className=""
+            />
+          </div>
+        </div>
         {/* Title */}
-        <h1 className="text-white font-semibold text-xl">{title}</h1>
+        <h1 className="text-white hover:text-[#00fff7] hover:cursor-pointer font-semibold text-xl">
+          {title}
+        </h1>
         {/* Description */}
         {description}
         {/* Price and time remaining */}
         <div className="flex flex-row justify-between w-full">
           {/* Price */}
-          <div className="text-[#00fff7] font-medium flex flex-row gap-2">
+          <div className="text-[#00fff7] font-medium flex flex-row gap-2 items-center">
             <Image
               src={'/nft-preview-card/icon-ethereum.svg'}
               alt=""
-              height={10}
-              width={10}
+              height={17}
+              width={11}
             />
             {price}
           </div>
           {/* Time */}
-          <div className="flex flex-row gap-1.5">
+          <div className="flex flex-row gap-1.5 items-center">
             <Image
               src={'/nft-preview-card/icon-clock.svg'}
               alt=""
@@ -68,7 +81,10 @@ const NFTCardPage = () => {
             width={30}
             className="mr-3 border border-white rounded-full"
           />
-          Creation of <span className="text-white ml-1">{creatorName}</span>
+          Creation of{' '}
+          <span className="text-white hover:text-[#00fff7] hover:cursor-pointer  ml-1">
+            {creatorName}
+          </span>
         </div>
       </div>
     </div>
