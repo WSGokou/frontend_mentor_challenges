@@ -6,11 +6,12 @@ const challenges = [
   {text: 'QR Code Card', href: '/challenges/qrcode'},
   {text: 'Results Summary', href: '/challenges/results-summary'},
   {text: 'NFT Preview Card', href: '/challenges/nft-preview-card'},
+  {text: 'Tip Calculator', href: '/challenges/tip-calculator'},
 ];
 
 const ChallengesPage = () => {
   return (
-    <div className="p-4 flex flex-col items-center text-white text-center bg-blue-400 h-screen">
+    <div className="p-4 flex flex-col items-center text-white text-center bg-blue-400 h-full">
       <Link
         href={'/'}
         className="text-2xl hover:text-yellow-400 self-start"
