@@ -10,7 +10,7 @@ import dollarIcon from '/public/tip-calculator/icon-dollar.svg';
 const spaceMono = Space_Mono({weight: ['700'], subsets: ['latin']});
 
 const hideInputArrows =
-  '[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none';
+  '[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none focus:outline-none focus:border-2 focus:border-[#26c0ab]';
 
 const totalTextStyles = {
   container: 'flex flex-row justify-between items-center',
@@ -52,7 +52,7 @@ const TipCalculatorPage = () => {
 
   return (
     <div
-      className={`${spaceMono.className} ${hideInputArrows} bg-[#c5e4e7] h-full w-screen flex flex-col items-center text-2xl text-[#5e7a7d]`}
+      className={`${spaceMono.className} bg-[#c5e4e7] h-full w-screen flex flex-col items-center text-2xl text-[#5e7a7d]`}
     >
       {/* App Container */}
       <div className="pt-12 flex flex-col items-center gap-10">
@@ -82,8 +82,9 @@ const TipCalculatorPage = () => {
               <input
                 type="number"
                 name="bill"
+                id="bill-input"
                 placeholder="0"
-                value={bill}
+                value={bill > 0 ? bill : ''}
                 className={`${hideInputArrows} text-right text-[#00494d] h-full bg-[#f4fafa] rounded-md w-full pl-9 pr-5`}
                 onChange={(e) => {
                   setBill(Number(e.target.value));
@@ -147,7 +148,8 @@ const TipCalculatorPage = () => {
                 type="number"
                 name="people"
                 placeholder="0"
-                value={numPeople}
+                value={numPeople > 0 ? numPeople : ''}
+                min={1}
                 className={`${hideInputArrows} text-right text-[#00494d] h-full bg-[#f4fafa] rounded-md w-full pl-9 pr-5`}
                 onChange={(e) => {
                   setNumPeople(Number(e.target.value));
