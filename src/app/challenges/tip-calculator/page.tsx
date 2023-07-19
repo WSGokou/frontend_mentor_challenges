@@ -56,10 +56,10 @@ const TipCalculatorPage = () => {
 
   return (
     <div
-      className={`${spaceMono.className} bg-[#c5e4e7] h-full w-screen flex flex-col items-center text-2xl text-[#5e7a7d]`}
+      className={`${spaceMono.className} bg-[#c5e4e7] min-h-[1080px] h-full w-screen flex flex-col items-center text-2xl text-[#5e7a7d]`}
     >
       {/* App Container */}
-      <div className="pt-12 lg:pt-40 flex flex-col items-center gap-10 lg:gap-[88px]">
+      <div className="pt-12 lg:pt-40 min-h-fit h-full flex flex-col items-center gap-10 lg:gap-[88px]">
         {/* Logo container */}
         <div>
           <Image
@@ -68,8 +68,8 @@ const TipCalculatorPage = () => {
           />
         </div>
         {/* Calculator container */}
-        <div className="bg-white grid grid-cols-1 lg:grid-cols-2 lg:grid-flow-col lg:gap-12 rounded-t-2xl lg:rounded-2xl px-6 pt-10 pb-8 lg:p-8 w-[375px] lg:w-[920px] lg:h-[482px] lg:shadow-2xl">
-          {/* Choices container */}
+        <div className="bg-white flex flex-col lg:flex-row lg:gap-12 rounded-t-2xl lg:rounded-2xl pb-10 px-6 pt-10 lg:p-8 w-[375px] lg:w-[920px] min-h-fit h-full lg:h-[482px] lg:shadow-2xl">
+          {/* Inputs container */}
           <div className="w-full flex flex-col">
             {/* Bill input */}
             <div className="flex flex-col gap-3 mb-10">
@@ -90,7 +90,7 @@ const TipCalculatorPage = () => {
                   name="bill"
                   id="bill-input"
                   placeholder="0"
-                  value={bill > 0 ? bill : ''}
+                  value={bill || ''}
                   className={`${hideInputArrows} text-right text-[#00494d] h-full bg-[#f4fafa] rounded-md w-full pl-9 pr-5`}
                   onChange={(e) => {
                     setBill(Number(e.target.value));
@@ -129,7 +129,7 @@ const TipCalculatorPage = () => {
                 <input
                   type="number"
                   placeholder="Custom"
-                  value={customTip > 0 ? customTip : ''}
+                  value={customTip || ''}
                   onChange={(e) => {
                     setSelectedTip(Number(e.target.value) / 100);
                     setCustomTip(Number(e.target.value));
@@ -155,9 +155,10 @@ const TipCalculatorPage = () => {
                 <input
                   type="number"
                   name="people"
+                  id="numPeopleInput"
                   placeholder="0"
-                  value={numPeople > 0 ? numPeople : ''}
-                  min={1}
+                  required
+                  value={numPeople || ''}
                   className={`${hideInputArrows} text-right text-[#00494d] h-full bg-[#f4fafa] rounded-md w-full pl-9 pr-5`}
                   onChange={(e) => {
                     setNumPeople(Number(e.target.value));
@@ -167,7 +168,7 @@ const TipCalculatorPage = () => {
             </div>
           </div>
 
-          {/* Calculations container */}
+          {/* Totals container */}
           <div className="bg-[#00494d] w-full p-6 pt-11 lg:pt-16 lg:pb-10 lg:px-9 flex flex-col gap-8 rounded-2xl">
             {/* Tip Amount */}
             <div className={`${totalTextStyles.container}`}>
