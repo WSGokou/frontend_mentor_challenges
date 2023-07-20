@@ -50,7 +50,7 @@ const ExpenseChartPage = () => {
           />
         </div>
         {/* Chart container */}
-        <div className="bg-white w-full rounded-lg md:rounded-2xl flex flex-col px-5 md:px-10 py-7 md:pt-10 md:pb-14">
+        <div className="bg-[#fffaf5] w-full rounded-lg md:rounded-2xl flex flex-col px-5 md:px-10 py-7 md:pt-10 md:pb-14">
           <h1 className="font-semibold text-2xl md:text-3xl md:mb-5">
             Spending - Last 7 days
           </h1>
