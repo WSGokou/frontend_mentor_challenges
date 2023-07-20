@@ -96,7 +96,7 @@ const ExpenseChartPage = () => {
                 Total this month
               </p>
               <p className="text-2xl md:text-5xl font-bold">{`$${
-                total * 2
+                total * 2 + 22.45
               }`}</p>
             </div>
             <div className="text-right">
