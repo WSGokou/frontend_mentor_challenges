@@ -35,12 +35,12 @@ const ExpenseChartPage = () => {
       className={`${dmSans.className} bg-[#f8e9dd] h-full w-screen min-w-fit flex items-center justify-center text-sm text-[#382314]`}
     >
       {/* Component container */}
-      <div className="w-[345px] flex flex-col gap-4">
+      <div className="w-[345px] md:w-[540px] flex flex-col gap-4">
         {/* Balance containter */}
-        <div className="bg-[#ec775f] w-full pl-5 pr-6 pb-5 pt-6 rounded-lg flex flex-row justify-between">
+        <div className="bg-[#ec775f] w-full pl-5 md:pl-8 pr-6 md:pr-10 pb-5 pt-6 md:py-7 rounded-lg md:rounded-2xl flex flex-row justify-between">
           <div className="text-[#fffaf5]">
-            <p className="text-sm">My balance</p>
-            <p className="text-2xl font-medium">$921.48</p>
+            <p className="text-sm md:text-lg md:mb-1">My balance</p>
+            <p className="text-2xl md:text-3xl font-medium">$921.48</p>
           </div>
           {/* Logo */}
           <Image
@@ -50,10 +50,12 @@ const ExpenseChartPage = () => {
           />
         </div>
         {/* Chart container */}
-        <div className="bg-white w-full rounded-lg flex flex-col px-5 py-7">
-          <h1 className="font-medium text-2xl">Spending - Last 7 days</h1>
+        <div className="bg-white w-full rounded-lg md:rounded-2xl flex flex-col px-5 md:px-10 py-7 md:pt-10 md:pb-14">
+          <h1 className="font-semibold text-2xl md:text-3xl md:mb-5">
+            Spending - Last 7 days
+          </h1>
           {/* Bars */}
-          <div className="flex flex-row gap-3 justify-center mt-12">
+          <div className="flex flex-row gap-3 md:gap-5 justify-center mt-12">
             {data.map((item, idx) => {
               const barHeight = (item.amount / maxAmount) * 150;
               const heightClass = `h-[${barHeight.toFixed(0)}px]`;
@@ -63,20 +65,23 @@ const ExpenseChartPage = () => {
               return (
                 <div
                   key={idx}
-                  className="flex flex-col items-center justify-end text-center group relative"
+                  className="flex flex-col w-full items-center justify-end text-center group relative"
                 >
+                  {/* amount */}
                   <p
-                    className={`text-[#fffaf5] ${amountClass} bg-[#382314] px-1 py-1.5 rounded-md flex items-center justify-center opacity-0 group-hover:opacity-100 absolute`}
+                    className={`text-[#fffaf5] md:text-xl ${amountClass} bg-[#382314] px-1 md:px-2 py-1.5 md:py-2 rounded-md flex items-center justify-center opacity-0 group-hover:opacity-100 absolute`}
                   >
                     {`$${item.amount.toFixed(2)}`}
                   </p>
+                  {/* bar */}
                   <div
-                    className={`w-8 ${heightClass} rounded-sm mb-4 mt-2 ${
+                    className={`w-8 md:w-12 ${heightClass} rounded-sm md:rounded-md mb-4 mt-2 ${
                       item.day === todayData?.day
-                        ? 'bg-[#76b5bc] hover:bg-[#76b5bc90]'
-                        : 'bg-[#ec775f] hover:bg-[#ec775fce]'
+                        ? 'bg-[#76b5bc] hover:bg-[#76b5bcaf]'
+                        : 'bg-[#ec775f] hover:bg-[#ec775faf]'
                     }`}
                   ></div>
+                  {/* day */}
                   <p className="text-[#93867bad] text-xs">{item.day}</p>
                 </div>
               );
@@ -87,12 +92,18 @@ const ExpenseChartPage = () => {
           {/* Total section */}
           <div className="flex flex-row justify-between items-end">
             <div>
-              <p className="text-[#93867bc2] mb-1">Total this month</p>
-              <p className="text-2xl font-bold">{`$${total * 2}`}</p>
+              <p className="text-[#93867bc2] md:text-lg mb-1">
+                Total this month
+              </p>
+              <p className="text-2xl md:text-5xl font-bold">{`$${
+                total * 2
+              }`}</p>
             </div>
             <div className="text-right">
-              <p className="font-bold text-base">+2.4%</p>
-              <p className="text-[#93867bc2]">from last month</p>
+              <p className="font-bold text-base md:text-xl">+2.4%</p>
+              <p className="text-[#93867bc2] text-sm md:text-base">
+                from last month
+              </p>
             </div>
           </div>
         </div>
