@@ -8,6 +8,7 @@ const challenges = [
   {text: 'NFT Preview Card', href: '/challenges/nft-preview-card'},
   {text: 'Tip Calculator', href: '/challenges/tip-calculator'},
   {text: 'Expenses Chart', href: '/challenges/expenses-chart'},
+  {text: 'Time Tracking Dashboard', href: '/challenges/time-tracker'},
 ];
 
 const ChallengesPage = () => {
