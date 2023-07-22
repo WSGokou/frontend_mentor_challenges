@@ -18,6 +18,7 @@ module.exports = {
 
   safelist: (() => {
     const safelist = [
+      // Results summary styles
       'text-[#ff5757]',
       'bg-[#ff575710]',
       'text-[#ffb01f]',
@@ -26,6 +27,13 @@ module.exports = {
       'bg-[#00bd9110]',
       'text-[#1125d4]',
       'bg-[#1125d410]',
+      // Time-tracker styles
+      'bg-[#ff8c66]',
+      'bg-[#56c2e6]',
+      'bg-[#ff5c7c]',
+      'bg-[#4acf81]',
+      'bg-[#7536d3]',
+      'bg-[#f1c65b]',
     ];
     for (let i = 0; i <= 150; i++) {
       safelist.push(`h-[${i}px]`);
