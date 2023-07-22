@@ -56,7 +56,7 @@ const TipCalculatorPage = () => {
 
   return (
     <div
-      className={`${spaceMono.className} bg-[#c5e4e7] min-h-[1080px] h-full w-screen flex flex-col items-center text-2xl text-[#5e7a7d]`}
+      className={`${spaceMono.className} bg-[#c5e4e7] min-h-[1080px] h-full w-screen min-w-fit flex flex-col items-center text-2xl text-[#5e7a7d]`}
     >
       {/* App Container */}
       <div className="pt-12 lg:pt-40 min-h-fit h-full flex flex-col items-center gap-10 lg:gap-[88px]">

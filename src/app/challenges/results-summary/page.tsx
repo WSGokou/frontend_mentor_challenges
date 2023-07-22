@@ -12,7 +12,7 @@ const ResultsSummaryPage = () => {
 
   return (
     <div
-      className={`${hanken.className} h-screen w-screen flex flex-col items-center md:justify-center text-sm`}
+      className={`${hanken.className} h-screen w-screen min-w-fit flex flex-col items-center md:justify-center text-sm`}
     >
       {/* Component container */}
       <div className="w-[375px] md:h-[510px] md:w-[740px] flex flex-col md:flex-row items-center ">

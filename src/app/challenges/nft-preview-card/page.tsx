@@ -18,7 +18,7 @@ const NFTCardPage = () => {
 
   return (
     <div
-      className={`${outfit.className} bg-[#0d192b] h-screen w-screen flex items-center justify-center text-sm text-[#8bacda]`}
+      className={`${outfit.className} bg-[#0d192b] h-screen w-screen min-w-fit flex items-center justify-center text-sm text-[#8bacda]`}
     >
       {/* Component */}
       <div className="bg-[#14253d] h-[545px] md:h-[600px] w-[330px] md:w-[355px] p-6 md:p-7 flex flex-col items-start justify-between rounded-2xl">
