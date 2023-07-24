@@ -4,6 +4,12 @@ import React, {useState} from 'react';
 import {Rubik} from 'next/font/google';
 import data from './data.json';
 import ProfilePic from '/public/time-tracker/image-jeremy.png';
+import Work from '/public/time-tracker/icon-work.svg';
+import Exercise from '/public/time-tracker/icon-exercise.svg';
+import Play from '/public/time-tracker/icon-play.svg';
+import Study from '/public/time-tracker/icon-study.svg';
+import Social from '/public/time-tracker/icon-social.svg';
+import Selfcare from '/public/time-tracker/icon-self-care.svg';
 import Image from 'next/image';
 
 const rubik = Rubik({subsets: ['latin']});
@@ -29,6 +35,14 @@ const rubik = Rubik({subsets: ['latin']});
 const TimeTrackerPage = () => {
   const [timeFrame, setTimeFrame] = useState('Weekly');
   const timeframes = ['Daily', 'Weekly', 'Monthly'];
+  const cardIcons = [
+    {title: 'Work', icon: Work},
+    {title: 'Study', icon: Study},
+    {title: 'Self Care', icon: Selfcare},
+    {title: 'Exercise', icon: Exercise},
+    {title: 'Social', icon: Social},
+    {title: 'Play', icon: Play},
+  ];
 
   return (
     <div
@@ -68,7 +82,7 @@ const TimeTrackerPage = () => {
                 />
                 <label
                   htmlFor={option}
-                  className="peer-checked:text-white hover:cursor-pointer"
+                  className="peer-checked:text-white hover:cursor-pointer hover:text-white"
                 >
                   {option}
                 </label>
@@ -77,12 +91,25 @@ const TimeTrackerPage = () => {
           </div>
         </div>
         {/* Time type boxes */}
-        {data.map((item, idx) => (
-          <div
-            key={idx}
-            className={`w-full h-40 rounded-2xl ${item.bgColor} relative`}
-          ></div>
-        ))}
+        {data.map((item, idx) => {
+          const icon = cardIcons.find((icon) => icon.title === item.title);
+          return (
+            <div
+              key={idx}
+              className={`w-full h-40 rounded-2xl ${item.bgColor} flex flex-col relative overflow-clip`}
+            >
+              <Image
+                src={icon?.icon}
+                alt=""
+                className="absolute -top-1.5 right-4"
+              />
+              <div className="bg-[#1c1f4a] h-3/4 w-full rounded-2xl absolute bottom-0">
+                <div className="text-white">{item.title}</div>
+                <div></div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
