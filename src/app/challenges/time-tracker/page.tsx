@@ -10,6 +10,7 @@ import Play from '/public/time-tracker/icon-play.svg';
 import Study from '/public/time-tracker/icon-study.svg';
 import Social from '/public/time-tracker/icon-social.svg';
 import Selfcare from '/public/time-tracker/icon-self-care.svg';
+import Ellipsis from '/public/time-tracker/icon-ellipsis.svg';
 import Image from 'next/image';
 
 const rubik = Rubik({subsets: ['latin']});
@@ -93,6 +94,19 @@ const TimeTrackerPage = () => {
         {/* Time type boxes */}
         {data.map((item, idx) => {
           const icon = cardIcons.find((icon) => icon.title === item.title);
+          const currentTime =
+            timeFrame === 'Daily'
+              ? item.timeframes.daily.current
+              : timeFrame === 'Monthly'
+              ? item.timeframes.monthly.current
+              : timeFrame === 'Weekly' && item.timeframes.weekly.current;
+          const previousTime =
+            timeFrame === 'Daily'
+              ? item.timeframes.daily.previous
+              : timeFrame === 'Monthly'
+              ? item.timeframes.monthly.previous
+              : timeFrame === 'Weekly' && item.timeframes.weekly.previous;
+
           return (
             <div
               key={idx}
@@ -103,9 +117,27 @@ const TimeTrackerPage = () => {
                 alt=""
                 className="absolute -top-1.5 right-4"
               />
-              <div className="bg-[#1c1f4a] h-3/4 w-full rounded-2xl absolute bottom-0">
-                <div className="text-white">{item.title}</div>
-                <div></div>
+              <div className="bg-[#1c1f4a] px-6 pt-8 h-3/4 w-full flex flex-col gap-3 rounded-2xl absolute bottom-0">
+                {/* Title and elilipsis */}
+                <div className="text-white w-full flex flex-row justify-between items-center">
+                  <h3>{item.title}</h3>
+                  <Image
+                    src={Ellipsis}
+                    alt=""
+                    className="h-1 w-5 cursor-pointer"
+                  />
+                </div>
+                {/* Times */}
+                <div className="flex flex-row justify-between items-center">
+                  <h1 className="text-white text-3xl font-light">{`${currentTime}hrs`}</h1>
+                  <p className="text-[#bdc1ff] text-base">{`${
+                    timeFrame === 'Weekly'
+                      ? 'Last Week'
+                      : timeFrame === 'Monthly'
+                      ? 'Last Month'
+                      : 'Yesterday'
+                  } - ${previousTime}hrs`}</p>
+                </div>
               </div>
             </div>
           );
