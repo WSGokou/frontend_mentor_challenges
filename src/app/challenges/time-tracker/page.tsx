@@ -123,11 +123,23 @@ const TimeTrackerPage = () => {
                 {/* Title and elilipsis */}
                 <div className="text-white w-full flex flex-row justify-between items-center">
                   <h3>{item.title}</h3>
-                  <Image
+                  {/* <Image
                     src={Ellipsis}
                     alt=""
                     className="h-1 w-5 cursor-pointer"
-                  />
+                  /> */}
+                  <svg
+                    width="21"
+                    height="5"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
+                      fill="#BBC0FF"
+                      fill-rule="evenodd"
+                      className="hover:fill-white"
+                    />
+                  </svg>
                 </div>
                 {/* Times */}
                 <div className="flex flex-row xl:flex-col xl:gap-4 justify-between items-center xl:items-start font-light">
