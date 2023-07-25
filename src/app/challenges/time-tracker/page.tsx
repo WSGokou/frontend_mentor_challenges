@@ -47,15 +47,15 @@ const TimeTrackerPage = () => {
 
   return (
     <div
-      className={`${rubik.className} bg-[#0f1424] min-h-fit w-screen min-w-fit flex flex-col items-center text-sm text-[#6f76c8]`}
+      className={`${rubik.className} bg-[#0f1424] min-h-screen w-screen min-w-fit flex flex-col items-center xl:justify-center text-sm text-[#6f76c8]`}
     >
       {/* Component container */}
-      <div className="w-[328px] grid grid-cols-1 gap-6 py-20">
+      <div className="w-[328px] xl:w-fit xl:h-[520px] grid grid-cols-1 xl:grid-cols-4 gap-6 xl:gap-7 py-20 xl:py-0">
         {/* Profile box */}
-        <div className="w-full h-[204px] bg-[#1c1f4a] flex flex-col rounded-2xl relative">
-          <div className="h-2/3 w-full pl-7 flex gap-4 items-center bg-[#5847eb] rounded-2xl">
+        <div className="w-full xl:w-64 h-[204px] xl:h-full xl:row-span-2 bg-[#1c1f4a] flex flex-col rounded-2xl relative">
+          <div className="h-2/3 w-full pl-7 xl:pt-8 flex flex-row xl:flex-col gap-4 xl:gap-10 items-center xl:items-start bg-[#5847eb] rounded-2xl">
             {/* Display pic */}
-            <div className="h-[70px] w-[70px] bg-white p-0.5 rounded-full">
+            <div className="h-[70px] xl:h-[84px] w-[70px] xl:w-[84px] bg-white p-0.5 rounded-full">
               <Image
                 src={ProfilePic}
                 alt=""
@@ -65,11 +65,13 @@ const TimeTrackerPage = () => {
             {/* Main text */}
             <div>
               <p className="text-[#bdc1ff]">Report for</p>
-              <h1 className="text-xl text-white">Jeremy Robson</h1>
+              <h1 className="text-xl xl:text-4xl font-extralight text-white">
+                Jeremy <br className="hidden xl:block" /> Robson
+              </h1>
             </div>
           </div>
           {/* Timeframes */}
-          <div className="h-1/3 flex flex-row items-center justify-between text-lg  pl-9 pr-6">
+          <div className="h-1/3 flex flex-row xl:flex-col items-center xl:items-start justify-between text-lg pl-9 pr-6 xl:py-8">
             {timeframes.map((option, idx) => (
               <div key={idx}>
                 <input
@@ -110,14 +112,14 @@ const TimeTrackerPage = () => {
           return (
             <div
               key={idx}
-              className={`w-full h-40 rounded-2xl ${item.bgColor} flex flex-col relative overflow-clip`}
+              className={`w-full xl:w-64 h-40 xl:h-full rounded-2xl ${item.bgColor} flex flex-col relative overflow-clip`}
             >
               <Image
                 src={icon?.icon}
                 alt=""
                 className="absolute -top-1.5 right-4"
               />
-              <div className="bg-[#1c1f4a] px-6 pt-8 h-3/4 w-full flex flex-col gap-3 rounded-2xl absolute bottom-0">
+              <div className="bg-[#1c1f4a] hover:bg-[#6f76c8] cursor-pointer px-6 pt-8 h-3/4 xl:h-4/5 w-full flex flex-col gap-3 xl:gap-6 rounded-2xl absolute bottom-0">
                 {/* Title and elilipsis */}
                 <div className="text-white w-full flex flex-row justify-between items-center">
                   <h3>{item.title}</h3>
@@ -128,8 +130,8 @@ const TimeTrackerPage = () => {
                   />
                 </div>
                 {/* Times */}
-                <div className="flex flex-row justify-between items-center">
-                  <h1 className="text-white text-3xl font-light">{`${currentTime}hrs`}</h1>
+                <div className="flex flex-row xl:flex-col xl:gap-4 justify-between items-center xl:items-start font-light">
+                  <h1 className="text-white text-3xl xl:text-5xl">{`${currentTime}hrs`}</h1>
                   <p className="text-[#bdc1ff] text-base">{`${
                     timeFrame === 'Weekly'
                       ? 'Last Week'
